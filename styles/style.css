@@ -1,0 +1,27 @@
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap');
+
+  body{
+    background-color: rgba(232, 228, 205, 0.637);
+    font-family: 'Titillium Web','arial';
+  }
+
+  section{
+    padding-left: 10%;
+    padding-right: 10%;
+    display: grid;
+    place-items: left;
+    align-content: left;
+    min-height: 100vh;
+  }
+
+
+  .hidden{
+    opacity: 0;
+    transition: all 2s;
+
+  }
+
+  .show{
+    opacity: 1;
+
+  }

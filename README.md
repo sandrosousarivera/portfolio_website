@@ -1,0 +1,1 @@
+I started building my personal portfolio. In this repository you can check out all the process I will be making on the project. :)
