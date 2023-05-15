@@ -1,16 +1,30 @@
-  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap');
+ /* ▼ WEB BODY ▼ */
+
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap');
+
+ *{
+    box-sizing: border-box;
+ }
+
 
   body{
-    background-color: rgba(232, 228, 205, 0.637);
+    
+    margin: 0;
+    width: 100%;
+    background-color: rgb(250, 248, 235);
     font-family: 'Titillium Web','arial';
   }
 
-  section{
-    padding-left: 10%;
-    padding-right: 10%;
+  .sections{
+    padding-top: 10%;
     display: grid;
-    place-items: left;
-    align-content: left;
+    align-items: center;
+    justify-content: center;
+  }
+
+  section{
+    padding-top:10% ;
     min-height: 100vh;
   }
 
@@ -25,3 +39,106 @@
     opacity: 1;
 
   }
+
+
+/* ▼ NAVIGATION MENU ▼ */
+
+.brand-title{
+    color: rgb(250, 248, 235);
+}
+
+.navbar{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d2d2d;
+    color: rgb(250, 248, 235);
+}
+
+.brand-title{
+     font-size: 1.5rem;
+     margin: .5rem;
+}
+
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li{
+    padding: 1rem;
+    list-style: none;
+
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.navbar a:hover{
+    color: rgb(212, 212, 212);
+
+    opacity: 0.7;
+}
+
+
+/* OLD CODE FOR THE NAVBAR
+
+ nav {
+
+    overflow: hidden;
+    margin: 0 auto 0;
+    padding-top: 0px;
+    position: fixed;
+    width: 100%;
+    line-height: 50%;
+    background-color: #2d2d2d;
+}
+
+nav ul {
+    line-height: 50%;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    padding-right: 40px;
+    transition: 1s;
+}
+
+
+nav ul li {
+    display: inline-block;
+    padding: 16px 40px;;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+nav a:hover{
+    color: rgb(212, 212, 212);
+
+    opacity: 0.7;
+}
+
+
+
