@@ -23,6 +23,7 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   section{
