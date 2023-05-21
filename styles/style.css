@@ -16,24 +16,35 @@
   }
 
 
-
   .sections{
-
+    max-width: 100%;
+    height: auto;
     padding-top: 10%;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
 
   section{
-    padding-top:10% ;
+    max-width: 100%;
+    height: auto;
     min-height: 100vh;
+  }
+
+  .section-content{
+    gap: 5%;
+    display: flex;
+    padding: 5%;
+    background-color: white;
+    max-width: 100%;
+    height: auto;
   }
 
 
   .hidden{
-    padding-top: 30%;
+    padding-top: 10%;
     opacity: 0;
     transition: all 2s;
 
@@ -52,6 +63,7 @@
 }
 
 .navbar{
+    z-index: 9999;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -114,6 +126,11 @@
 }
 
 @media (max-width: 800px) {
+
+    .hidden{
+        padding-top: 30%;
+    }
+
     .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -144,6 +161,12 @@
     .navbar-links.active {
         display: flex;
     }
+}
+
+/* ▼ ABOUT ME SECTION ▼ */
+
+.profile-image{
+    width: 25%;
 }
 
 /* OLD CODE FOR THE NAVBAR
