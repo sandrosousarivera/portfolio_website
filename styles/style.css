@@ -11,7 +11,7 @@
   body{
     margin: 0;
     width: 100%;
-    background-color: rgb(250, 248, 235);
+    background-color: rgb(255, 254, 246);
     font-family: 'Titillium Web','arial';
   }
 
@@ -40,7 +40,7 @@
     gap: 5%;
     display: flex;
     padding: 5%;
-    background-color: white;
+    background-color: rgba(89, 255, 0, 0.166);
     max-width: 100%;
     height: auto;
   }
@@ -62,7 +62,7 @@
 /* ▼ NAVIGATION MENU ▼ */
 
 .brand-title{
-    color: rgb(250, 248, 235);
+    color: rgb(255, 254, 246);
 }
 
 .navbar{
@@ -74,7 +74,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #2d2d2d;
-    color: rgb(250, 248, 235);
+    color: rgb(255, 254, 246);
 }
 
 .brand-title{
@@ -96,7 +96,7 @@
 
 .navbar-links li a{
     text-decoration: none;
-    color: rgb(250, 248, 235);
+    color: rgb(255, 254, 246);
     align-items: center;
 
     transition: opacity .25s ease-in-out;
@@ -124,7 +124,7 @@
 .toggle-button .bar{
     height: 3px;
     width: 100%;
-    background-color: rgb(250, 248, 235);
+    background-color: rgb(255, 254, 246);
     border-radius: 10px;
 }
 
