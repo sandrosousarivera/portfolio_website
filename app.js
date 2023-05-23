@@ -9,6 +9,7 @@ const observer = new IntersectionObserver((entries)=>{
     })
 });
 
+/* ▼ NAVBAR BEHAVIOR WHEN RESIZED ▼ */
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el)=> observer.observe(el))
