@@ -16,6 +16,14 @@
   }
 
 
+  section{
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  
+
   .sections{
     max-width: 100%;
     height: auto;
@@ -27,11 +35,6 @@
     text-align: center;
   }
 
-  section{
-    max-width: 100%;
-    height: auto;
-    min-height: 100vh;
-  }
 
   .section-content{
     gap: 5%;
@@ -125,6 +128,29 @@
     border-radius: 10px;
 }
 
+/* ▼ PROFILE IMAGE ▼ */
+
+.profile-image{
+    width: 25%;
+    height: 25%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% ;
+    animation: morph 10s ease-in-out infinite;
+    border: 2px solid #2d2d2d;
+}
+@keyframes morph{
+    0%{
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% ;
+    }
+    50%{
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60% ;
+    }
+    100%{
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% ;
+    }
+}
+
+/* ▼ NAVBAR SHRINK WHEN RESIZING ▼ */
+
 @media (max-width: 800px) {
 
     .hidden{
@@ -163,11 +189,9 @@
     }
 }
 
-/* ▼ ABOUT ME SECTION ▼ */
 
-.profile-image{
-    width: 25%;
-}
+
+
 
 /* OLD CODE FOR THE NAVBAR
 
