@@ -21,3 +21,17 @@ const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 toggleButton.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
 })
+
+/* ▼ DARK THEME ▼ */
+
+var icon = document.getElementById("icon");
+
+icon.onclick = function(){
+    document.body.classList.toggle("dark-theme");
+
+    if(document.body.classList.contains("dark-theme")){
+        icon.textContent="💡";
+    }else{
+        icon.textContent="🌙";
+    }
+}
