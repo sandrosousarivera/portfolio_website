@@ -77,6 +77,10 @@
 
   }
 
+  #about-me{
+    padding-bottom: 0%;
+  }
+
 
 /* ▼ NAVIGATION MENU ▼ */
 
@@ -242,6 +246,33 @@ ul li:hover ul.dropdown{
     }
 
 
+}
+
+/* ▼ SOCIAL BUTTONS ▼ */
+
+.headerDivider {
+    border-left:1px solid var(--terciary-color); 
+    border-right:1px solid var(--terciary-color); 
+    height: 109px;
+
+}
+
+.social-buttons ul li{
+    color: var(--secondary-color);
+    list-style: none;
+    display: inline-block;
+    justify-content: flex-end;
+    text-decoration: none;
+}
+
+.social-buttons{
+    display: flex;
+}
+
+ul li a .fa-brands{
+    color: var(--secondary-color); ;
+    padding-bottom: 0.5em;
+    font-size: 2em;;
 }
 
 
