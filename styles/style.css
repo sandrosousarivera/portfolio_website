@@ -46,12 +46,16 @@
   .sections{
     max-width: 100%;
     height: auto;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  #technologies{
+
+
   }
 
 
@@ -68,7 +72,7 @@
   .hidden{
     padding-top: 10%;
     opacity: 0;
-    transition: all 2s;
+    transition: all 2.5s;
 
   }
 
@@ -80,6 +84,7 @@
   #about-me{
     padding-bottom: 0%;
   }
+
 
 
 /* ▼ NAVIGATION MENU ▼ */
@@ -250,10 +255,11 @@ ul li:hover ul.dropdown{
 
 /* ▼ SOCIAL BUTTONS ▼ */
 
-.headerDivider {
+.header-divider {
     border-left:1px solid var(--terciary-color); 
     border-right:1px solid var(--terciary-color); 
     height: 109px;
+    border-radius: 20%;
 
 }
 
@@ -270,11 +276,54 @@ ul li:hover ul.dropdown{
 }
 
 ul li a .fa-brands{
-    color: var(--secondary-color); ;
+    color: var(--secondary-color);
     padding-bottom: 0.5em;
     font-size: 2em;;
 }
 
+/* ▼ SOCIAL SECTION WHEN RESIZING ▼ */
+
+@media (max-width: 600px){
+
+    .header-divider {
+        opacity: 0;
+    
+    }
+
+    .social-buttons{
+        padding-right: 10%;
+        display: block;
+    }
+
+    .section-content{
+        display: block;
+    }
+
+    .profile-image{
+        height: 35%;
+        width: 52%;
+    }
+
+    .technology-divider{
+        opacity: 0;
+    }
+}
+
+/* ▼ ICONS ▼ */
+
+.technology-logo{
+    font-size: 100px;
+}
+
+
+.technology-divider{
+
+    border-left:1px solid var(--terciary-color); 
+    border-right:1px solid var(--terciary-color); 
+    height: 109px;
+    border-radius: 20%;
+
+}
 
 
 
