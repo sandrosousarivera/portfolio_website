@@ -55,7 +55,9 @@
 
   #technologies{
 
-
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
   }
 
 
@@ -286,7 +288,7 @@ ul li a .fa-brands{
 @media (max-width: 600px){
 
     .header-divider {
-        opacity: 0;
+        display: none;
     
     }
 
@@ -305,13 +307,35 @@ ul li a .fa-brands{
     }
 
     .technology-divider{
-        opacity: 0;
+        display: none;
     }
+
+
 }
+
+
 
 /* ▼ ICONS ▼ */
 
+
+.technology-section i{
+    padding-right: 2%;
+    float: left;
+}
+
+.technology-section {
+    display: flex;
+    clear: both;
+    padding-bottom: 10%;
+}
+
+.technology-section p{
+    padding-left: 2%;
+    align-items:right;
+}
+
 .technology-logo{
+
     font-size: 100px;
 }
 
