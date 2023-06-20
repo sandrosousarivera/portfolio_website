@@ -14,6 +14,10 @@
     --navbarLinks-color: rgb(255, 254, 246);
  }
 
+ #icon{
+    cursor: pointer;
+ }
+
    .dark-theme{ 
     --primary-color: #868686 ;
     --secondary-color: rgb(0, 0, 0);
@@ -86,6 +90,7 @@
   #about-me{
     padding-bottom: 0%;
   }
+
 
 
 
@@ -178,6 +183,7 @@ ul li:hover ul.dropdown{
 /* ▼ PROFILE IMAGE ▼ */
 
 .profile-image{
+    object-fit: cover;
     width: 25%;
     height: 25%;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% ;
@@ -185,6 +191,7 @@ ul li:hover ul.dropdown{
     border: 2px solid var(--secondary-color);
 }
 @keyframes morph{
+
     0%{
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% ;
     }
@@ -253,6 +260,7 @@ ul li:hover ul.dropdown{
     }
 
 
+
 }
 
 /* ▼ SOCIAL BUTTONS ▼ */
@@ -310,15 +318,21 @@ ul li a .fa-brands{
         display: none;
     }
 
+    .section-content .image-container{
+        display: block;
+    }
+    
 
 }
 
 
 
-/* ▼ ICONS ▼ */
+/* ▼ TECHNOLOGY ICONS ▼ */
 
 
 .technology-section i{
+    
+    color: var(--terciary-color);
     padding-right: 2%;
     float: left;
 }
@@ -339,6 +353,22 @@ ul li a .fa-brands{
     font-size: 100px;
 }
 
+.fa-square-js{
+    font-size: 5.3em;
+}
+
+.fa-sass{
+    font-size: 3.7em;
+}
+
+.fa-react{
+    font-size: 4.5em;
+}
+
+.fa-java{
+    font-size: 6em;
+}
+
 
 .technology-divider{
 
@@ -349,56 +379,26 @@ ul li a .fa-brands{
 
 }
 
+/* ▼ PROJECTS SECTION ▼ */
 
-
-
-/* OLD CODE FOR THE NAVBAR
-
- nav {
-
-    overflow: hidden;
-    margin: 0 auto 0;
-    padding-top: 0px;
-    position: fixed;
-    width: 100%;
-    line-height: 50%;
-    background-color: #2d2d2d;
+#projects{
+    display: block;
 }
 
-nav ul {
-    line-height: 50%;
-    list-style: none;
-    background: rgba(0, 0, 0, 0);
-    overflow: hidden;
-    color: #fff;
-    padding: 0;
-    text-align: center;
-    margin: 0;
-    padding-right: 40px;
-    transition: 1s;
+.project-thumbnail{
+    border-radius: 8%;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 5%;
+    width: 50%;
+    transition: all 0.5s ease;
 }
 
-
-nav ul li {
-    display: inline-block;
-    padding: 16px 40px;;
+.project-thumbnail:hover{
+    transform: scale(1.05);
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+.image-container{
+    display: flex;
 }
-
-nav a:hover{
-    color: rgb(212, 212, 212);
-
-    opacity: 0.7;
-}
-
-
 
