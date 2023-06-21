@@ -321,6 +321,11 @@ ul li a .fa-brands{
     .section-content .image-container{
         display: block;
     }
+
+    .section-content .technology-section{
+        display: grid;
+;
+    }
     
 
 }
@@ -392,13 +397,27 @@ ul li a .fa-brands{
     margin-bottom: 5%;
     width: 50%;
     transition: all 0.5s ease;
+    -webkit-filter: grayscale(100%);
+    -moz-filter:    grayscale(100%);
+    -ms-filter:     grayscale(100%);
+    -o-filter:      grayscale(100%);
+    filter: gray; 
 }
 
-.project-thumbnail:hover{
+.project-thumbnail:hover, .project-thumbnail:active{
     transform: scale(1.05);
+    filter: none;
+    -webkit-filter: grayscale(0%);
+    -moz-filter:    grayscale(0%);
+    -ms-filter:     grayscale(0%);
+    -o-filter:      grayscale(0%);
 }
 
 .image-container{
     display: flex;
+}
+
+.image-wrapper p{
+    padding: 5%;
 }
 
