@@ -386,6 +386,11 @@ ul li a .fa-brands:hover{
       .form-divider {
         display: none;
     }
+    
+    hr{
+        border: 1px solid;
+        width: 100%;
+    }
 
 }
 
@@ -624,3 +629,8 @@ text-decoration: none;
     padding-bottom: 40px;
 }
 
+hr{
+    border-left:1px solid var(--terciary-color); 
+    border-right:1px solid var(--terciary-color); 
+    height: 100%;
+}
