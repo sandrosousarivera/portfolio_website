@@ -38,6 +38,9 @@
 
   }
 
+  .thumbnail-image{
+    display: none;
+}
 
   section{
     max-width: 100%;
@@ -283,12 +286,19 @@ ul li:hover ul.dropdown{
 
 .social-buttons{
     display: flex;
+    
 }
 
 ul li a .fa-brands{
     color: var(--secondary-color);
     padding-bottom: 0.5em;
     font-size: 2em;;
+    transition: all 0.5s ease-out;
+}
+
+ul li a .fa-brands:hover{
+    transform: scale(1.2);
+    transition: all 0.5s ease-in-out;
 }
 
 /* ▼ SOCIAL SECTION WHEN RESIZING ▼ */
@@ -324,7 +334,7 @@ ul li a .fa-brands{
 
     .section-content .technology-section{
         display: grid;
-;
+
     }
 
     .pulse {
@@ -358,6 +368,24 @@ ul li a .fa-brands{
         }
       }
     
+      .form-container{
+        width: 100%;
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+      }
+
+      .form-left{
+        width: 100%;
+        padding-bottom: 0%;
+      } 
+      .form-right{
+        width: 100%;
+      }
+
+      .form-divider {
+        display: none;
+    }
 
 }
 
@@ -490,6 +518,14 @@ text-decoration: none;
 
 /* ▼ FORM SECTION ▼ */
 
+.form-divider {
+    border-left:1px solid var(--terciary-color); 
+    border-right:1px solid var(--terciary-color); 
+    height: 509px;
+
+
+}
+
 .form-container{
     position: relative;
     width: 100%;
@@ -503,7 +539,7 @@ text-decoration: none;
 }
 
 .form-left{
-    width: 55%;
+    width: 100%;
 }
 
 .form-heading{
@@ -558,6 +594,7 @@ text-decoration: none;
     transition: all 0.5s ease-in;
 }
 
+
 .contact-info{
     display: flex;
     flex-direction: column;
@@ -572,7 +609,18 @@ text-decoration: none;
 }
 
 .info-box i{
-    padding-top: 20px;
-    float: left;
+    font-size: 1.7em;
+    padding-top: 30px;
+    padding-bottom: 10px;
     
 }
+
+.info-box a{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.contact-text{
+    padding-bottom: 40px;
+}
+
