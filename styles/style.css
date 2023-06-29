@@ -569,6 +569,19 @@ text-decoration: none;
     outline: none;
 }
 
+.input-box.error input{
+    border-bottom: 1px solid red;
+}
+
+.input-box.error textarea{
+    border-bottom: 1px solid red;
+}
+
+.input-box .err-msg{
+    font-size: 10px;
+    color: red;
+}
+
 .input-box textarea{
     resize: none;
     height: 150px;
