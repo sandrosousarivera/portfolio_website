@@ -560,6 +560,7 @@ text-decoration: none;
 }
 
 .input-box input, textarea{
+    font-family: 'Titillium Web';
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -570,6 +571,7 @@ text-decoration: none;
 }
 
 .input-box.error input{
+    
     border-bottom: 1px solid red;
 }
 

@@ -14,8 +14,10 @@
     <title>Sandro Sousa's portfolio.</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="app.js"></script>
     <script src="https://kit.fontawesome.com/8c3eb336a4.js" crossorigin="anonymous"></script>
+
 
 <!--preview-->
 <!-- Primary Meta Tags -->
@@ -242,22 +244,22 @@
                 <p class="form-text">If you think there is anything we should talk about, don't hesitate to send me a message!</p>
                 <form  action="#">
                     <div class="input-box">
-                        <input type="text" name="name." class="name" placeholder="Your name / Company name.">
+                        <input type="text" name="name" id="name" class="name" placeholder="Your name / Company name.">
                     </div>
 
                     <div class="input-box">
-                        <input type="text" name="subject." class="subject" placeholder="Subject.">
+                        <input type="text" name="subject" id="subject" class="subject" placeholder="Subject.">
                     </div>
 
                     <div class="input-box">
-                        <input type="text" name="email." class="email" placeholder="Contact E-mail.">
+                        <input type="text" name="email" id="email" class="email" placeholder="Contact E-mail.">
                     </div>
 
                     <div class="input-box">
-                        <textarea type="text" name="message." class="message" placeholder="Your message..."></textarea>
+                        <textarea type="text" name="message" id="message" class="message" placeholder="Your message..."></textarea>
                     </div>
 
-                    <button class="btn">Submit</button>
+                    <button id="submit-button" class="btn">Submit</button>
 
                 </form>
             </div>
