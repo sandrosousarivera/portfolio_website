@@ -39,7 +39,8 @@ icon.onclick = function () {
 }
 
 
-/* ▼ FORMULARIO CONTACTO ▼ */
+/* ▼ ENVÍO FORMULARIO CONTACTO ▼ */
+
 
 
 const form = document.querySelector("form");
@@ -56,33 +57,40 @@ form.addEventListener("submit", (e) => {
 
 
     
+        
 
-        axios.post('http://52.70.103.202:3000/email-send', {
+        const apiUrl = 'https://opcx7kbqxa.execute-api.us-east-1.amazonaws.com/prod/sendemail';
+        
+        const requestData = {
             name: name,
-            message: message,
             email: email,
-            subject: subject
+            subject: subject,
+            bodyText: message,
+        };
+        
+        axios.post(apiUrl, requestData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-            .then(function (response) {
-                // handle success
-
-                alert("Message sent!")
-
-                console.log("Message sent!");
+            .then(response => {
+                alert ("Message succesfully sent!!");
+                console.log('Response:', response.data);
             })
-            .catch(function (error) {
-                // handle error
-
-                alert("Error, message not sent, try sending a direct E-Mail :-)")
-
-                console.log("Error, message not sent.");
-            })
+            .catch(error => {
+                alert ("Message not sent, try Emailing me manually.")
+                console.error('Error:', error);
+            });
+        
 
         form.reset();
     }
 
 });
 
+
+
+/* ▼ VALIDACIÓN FORMULARIO CONTACTO ▼ */
 
 const validateForm = (form) => {
 
