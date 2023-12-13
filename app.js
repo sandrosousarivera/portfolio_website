@@ -59,7 +59,7 @@ form.addEventListener("submit", (e) => {
     
         
 
-        const apiUrl = 'https://opcx7kbqxa.execute-api.us-east-1.amazonaws.com/prod/sendemail';
+        const apiUrl = 'https://s9bvm7zo92.execute-api.us-east-1.amazonaws.com/prod/sendEmail';
         
         const requestData = {
             name: name,
