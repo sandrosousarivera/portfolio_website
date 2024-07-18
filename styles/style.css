@@ -8,10 +8,10 @@
  }
 
  :root{
-    --primary-color: rgb(255, 255, 255);
-    --secondary-color: #383838;
-    --terciary-color: black;
-    --navbarLinks-color: rgb(255, 254, 246);
+    --primary-color: white;
+    --secondary-color: #466389ff;
+    --terciary-color: rgb(0, 0, 0);
+    --navbarLinks-color: #F1B941ff;
  }
 
  #icon{
@@ -269,8 +269,8 @@ ul li:hover ul.dropdown{
 /* ▼ SOCIAL BUTTONS ▼ */
 
 .header-divider {
-    border-left:1px solid var(--terciary-color); 
-    border-right:1px solid var(--terciary-color); 
+    border-left:1px solid var(--navbarLinks-color); 
+    border-right:1px solid var(--navbarLinks-color);
     height: 109px;
     border-radius: 20%;
 
@@ -401,12 +401,13 @@ ul li a .fa-brands:hover{
 
 .technology-section i{
     
-    color: var(--terciary-color);
+    color: var(--secondary-color);
     padding-right: 2%;
     float: left;
 }
 
 .technology-section {
+    
     display: flex;
     clear: both;
     padding-bottom: 10%;
@@ -423,6 +424,7 @@ ul li a .fa-brands:hover{
 }
 
 .fa-square-js{
+
     font-size: 5.3em;
 }
 
@@ -440,9 +442,8 @@ ul li a .fa-brands:hover{
 
 
 .technology-divider{
-
-    border-left:1px solid var(--terciary-color); 
-    border-right:1px solid var(--terciary-color); 
+    border-left:1px solid var(--navbarLinks-color); 
+    border-right:1px solid var(--navbarLinks-color); 
     height: 109px;
     border-radius: 20%;
 
@@ -524,8 +525,8 @@ text-decoration: none;
 /* ▼ FORM SECTION ▼ */
 
 .form-divider {
-    border-left:1px solid var(--terciary-color); 
-    border-right:1px solid var(--terciary-color); 
+    border-left:1px solid var(--navbarLinks-color);
+    border-right:1px solid var(--navbarLinks-color); 
     height: 509px;
 
 
@@ -645,7 +646,7 @@ text-decoration: none;
 }
 
 hr{
-    border-left:1px solid var(--terciary-color); 
-    border-right:1px solid var(--terciary-color); 
+    border-left:1px solid var(--navbarLinks-color);
+    border-right:1px solid var(--navbarLinks-color);
     height: 100%;
 }
