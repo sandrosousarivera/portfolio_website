@@ -4,3 +4,4 @@ server2.js/
 
 # Ignore .env files
 .env
+.DS_Store
