@@ -30,6 +30,9 @@ jobs:
         with:
           use-installer: true
 
+      - name: Verify SAM installation
+        run: sam --version
+
       - name: Install dependencies
         run: npm ci
 
@@ -47,16 +50,25 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Verify AWS credentials
+        run: aws sts get-caller-identity
+
       - name: Build and Deploy Lambda Function
         run: |
           cd lambda
-          sam build
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name contact-form-stack --capabilities CAPABILITY_IAM --parameter-overrides RecaptchaSecretKey=${{ secrets.RECAPTCHA_SECRET_KEY }}
+          echo "Building SAM application..."
+          sam build --debug
+          echo "Deploying SAM application..."
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name contact-form-stack --capabilities CAPABILITY_IAM --parameter-overrides RecaptchaSecretKey="${{ secrets.RECAPTCHA_SECRET_KEY }}" --debug
+          echo "Getting API Gateway URL..."
+          aws cloudformation describe-stacks --stack-name contact-form-stack --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' --output text
           cd ..
 
       - name: Deploy to S3
         run: |
+          echo "Syncing files to S3..."
           aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete --exact-timestamps
+          echo "Setting cache headers for index.html..."
           aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
             --metadata-directive REPLACE \
             --cache-control max-age=0,no-cache,no-store,must-revalidate \
@@ -64,6 +76,7 @@ jobs:
 
       - name: Invalidate CloudFront cache
         run: |
+          echo "Invalidating CloudFront cache..."
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
