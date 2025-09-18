@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
   // reCAPTCHA site key - preferably from environment variable
   const RECAPTCHA_SITE_KEY =
     process.env.REACT_APP_RECAPTCHA_SITE_KEY ||
-    "6Le7g80rAAAAAEFq3p12UNydkj0eqjEqDxqsK9SO";
+    "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Google's test key
 
   // API Configuration from environment variable
   const API_URL = 
