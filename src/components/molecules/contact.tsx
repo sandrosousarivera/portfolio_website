@@ -20,20 +20,20 @@ const Contact: React.FC = () => {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  // reCAPTCHA site key - preferably from environment variable
-  const RECAPTCHA_SITE_KEY =
-    process.env.REACT_APP_RECAPTCHA_SITE_KEY ||
-    "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Google's test key
+  // reCAPTCHA site key - from environment variable
+  const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || "";
 
   // API Configuration from environment variable
-  const API_URL = 
+  const API_URL =
     process.env.REACT_APP_API_URL ||
     "https://s9bvm7zo92.execute-api.us-east-1.amazonaws.com/prod/sendEmail";
 
   // Debug: Verificar que las variables de entorno estén funcionando
-  console.log('Environment variables status:', {
-    recaptchaSiteKey: process.env.REACT_APP_RECAPTCHA_SITE_KEY ? 'LOADED' : 'FALLBACK',
-    apiUrl: process.env.REACT_APP_API_URL ? 'LOADED' : 'FALLBACK'
+  console.log("Environment variables status:", {
+    recaptchaSiteKey: process.env.REACT_APP_RECAPTCHA_SITE_KEY
+      ? "LOADED"
+      : "FALLBACK",
+    apiUrl: process.env.REACT_APP_API_URL ? "LOADED" : "FALLBACK",
   });
 
   // Rate limiter - 1 envío por hora
@@ -529,13 +529,15 @@ const Contact: React.FC = () => {
 
               {/* reCAPTCHA con debugging completo */}
               <div className="flex justify-center">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={RECAPTCHA_SITE_KEY}
-                  onChange={onRecaptchaChange}
-                  onErrored={onRecaptchaError}
-                  onExpired={onRecaptchaExpired}
-                />
+                {RECAPTCHA_SITE_KEY && (
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={RECAPTCHA_SITE_KEY}
+                    onChange={onRecaptchaChange}
+                    onErrored={onRecaptchaError}
+                    onExpired={onRecaptchaExpired}
+                  />
+                )}
               </div>
 
               <Button
