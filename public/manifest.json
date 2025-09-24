@@ -1,11 +1,17 @@
 {
   "short_name": "Sandro's Portfolio",
-  "name": "Sandro Sousa Rivera - Portfolio",
+  "name": "Sandro Sousa Rivera - Portfolio & Experience",
+  "description": "Welcome to Sandro Sousa's portfolio, take a look and check out his experience!",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "32x32"
     },
     {
       "src": "logo192.png",
@@ -20,6 +26,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1e40af",
+  "background_color": "#ffffff",
+  "categories": ["portfolio", "developer", "personal"],
+  "lang": "en"
 }
