@@ -528,8 +528,8 @@ const Contact: React.FC = () => {
               </div>
 
               {/* reCAPTCHA con debugging completo */}
-              <div className="flex justify-center">
-                {RECAPTCHA_SITE_KEY && (
+              <div className="flex justify-start">
+                {RECAPTCHA_SITE_KEY ? (
                   <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey={RECAPTCHA_SITE_KEY}
@@ -537,6 +537,13 @@ const Contact: React.FC = () => {
                     onErrored={onRecaptchaError}
                     onExpired={onRecaptchaExpired}
                   />
+                ) : (
+                  <div className="p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-xl">
+                    <p className="text-sm">
+                      reCAPTCHA not configured. Please set
+                      REACT_APP_RECAPTCHA_SITE_KEY environment variable.
+                    </p>
+                  </div>
                 )}
               </div>
 
