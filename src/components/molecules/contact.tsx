@@ -1,12 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, MapPin, Linkedin } from "lucide-react";
 import Button from "../atoms/Button";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ReCAPTCHA from "react-google-recaptcha";
+import {
+  GoogleReCaptchaProvider,
+  useGoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 
-const Contact: React.FC = () => {
+const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,15 +21,28 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [rateLimitMessage, setRateLimitMessage] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-
-  // reCAPTCHA site key - from environment variable
-  const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY!;
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   // API Configuration from environment variable
   const API_URL = process.env.REACT_APP_API_URL!;
 
   // Environment variables are loaded from .env file
+
+  // reCAPTCHA v3 execution function
+  const executeRecaptchaV3 = async () => {
+    if (!executeRecaptcha) {
+      toast.error("reCAPTCHA not available. Please refresh the page.");
+      return null;
+    }
+
+    try {
+      const token = await executeRecaptcha("contact_form");
+      return token;
+    } catch (error) {
+      toast.error("reCAPTCHA verification failed. Please try again.");
+      return null;
+    }
+  };
 
   // Rate limiter - 1 envío por hora
   const checkRateLimit = (): boolean => {
@@ -124,7 +140,9 @@ const Contact: React.FC = () => {
   };
 
   const onRecaptchaError = () => {
-    toast.error("reCAPTCHA failed to load. Please refresh the page and try again.");
+    toast.error(
+      "reCAPTCHA failed to load. Please refresh the page and try again."
+    );
     setRecaptchaToken(null);
   };
 
@@ -159,11 +177,7 @@ const Contact: React.FC = () => {
       return false;
     }
 
-    // Verificar reCAPTCHA con validaciones adicionales
-    if (!recaptchaToken || recaptchaToken.length < 20) {
-      toast.error("Please complete the reCAPTCHA verification.");
-      return false;
-    }
+    // reCAPTCHA v3 verification will be done during form submission
 
     // Sanitizar inputs
     const sanitizedName = sanitizeInput(formData.name);
@@ -240,16 +254,20 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Preparar datos con debugging
+      // Generate reCAPTCHA v3 token
+      const token = await executeRecaptchaV3();
+      if (!token) {
+        return;
+      }
+
+      // Preparar datos
       const requestData = {
         name: sanitizeInput(formData.name),
         email: sanitizeInput(formData.email),
         subject: sanitizeInput(formData.subject),
         bodyText: sanitizeInput(formData.message),
-        recaptchaToken: recaptchaToken,
+        recaptchaToken: token,
       };
-
-
 
       const response = await axios.post(API_URL, requestData, {
         headers: {
@@ -274,16 +292,12 @@ const Contact: React.FC = () => {
           message: "",
         });
 
-        // Reset reCAPTCHA
-        if (recaptchaRef.current) {
-          recaptchaRef.current.reset();
-        }
+        // reCAPTCHA v3 doesn't need manual reset
         setRecaptchaToken(null);
       }
     } catch (error: any) {
       // Handle error without exposing sensitive information
       if (error.response) {
-
         if (
           error.response.status === 400 &&
           error.response.data?.error?.includes("reCAPTCHA")
@@ -500,16 +514,25 @@ const Contact: React.FC = () => {
                 )}
               </div>
 
-              {/* reCAPTCHA */}
+              {/* reCAPTCHA v3 info */}
               <div className="flex justify-start">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={RECAPTCHA_SITE_KEY}
-                  onChange={onRecaptchaChange}
-                  onErrored={onRecaptchaError}
-                  onExpired={onRecaptchaExpired}
-                  theme="light"
-                />
+                <p className="text-xs text-gray-500">
+                  This site is protected by reCAPTCHA and the Google{" "}
+                  <a
+                    href="https://policies.google.com/privacy"
+                    className="text-blue hover:underline"
+                  >
+                    Privacy Policy
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="https://policies.google.com/terms"
+                    className="text-blue hover:underline"
+                  >
+                    Terms of Service
+                  </a>{" "}
+                  apply.
+                </p>
               </div>
 
               <Button
@@ -526,6 +549,24 @@ const Contact: React.FC = () => {
       </div>
       <ToastContainer />
     </section>
+  );
+};
+
+const Contact: React.FC = () => {
+  const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY!;
+
+  return (
+    <GoogleReCaptchaProvider
+      reCaptchaKey={RECAPTCHA_SITE_KEY}
+      scriptProps={{
+        async: false,
+        defer: false,
+        appendTo: "head",
+        nonce: undefined,
+      }}
+    >
+      <ContactForm />
+    </GoogleReCaptchaProvider>
   );
 };
 
