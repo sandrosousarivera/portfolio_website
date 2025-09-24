@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Mail, MapPin, Linkedin } from "lucide-react";
 import Button from "../atoms/Button";
 import axios from "axios";
@@ -21,20 +21,12 @@ const Contact: React.FC = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // reCAPTCHA site key - from environment variable
-  const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || "";
+  const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY!;
 
   // API Configuration from environment variable
-  const API_URL =
-    process.env.REACT_APP_API_URL ||
-    "https://s9bvm7zo92.execute-api.us-east-1.amazonaws.com/prod/sendEmail";
+  const API_URL = process.env.REACT_APP_API_URL!;
 
-  // Debug: Verificar que las variables de entorno estén funcionando
-  console.log("Environment variables status:", {
-    recaptchaSiteKey: process.env.REACT_APP_RECAPTCHA_SITE_KEY
-      ? "LOADED"
-      : "FALLBACK",
-    apiUrl: process.env.REACT_APP_API_URL ? "LOADED" : "FALLBACK",
-  });
+  // Environment variables are loaded from .env file
 
   // Rate limiter - 1 envío por hora
   const checkRateLimit = (): boolean => {
@@ -128,20 +120,15 @@ const Contact: React.FC = () => {
   };
 
   const onRecaptchaChange = (token: string | null) => {
-    console.log(
-      "reCAPTCHA onChange:",
-      token ? "Token received" : "Token cleared"
-    );
     setRecaptchaToken(token);
   };
 
   const onRecaptchaError = () => {
-    console.error("reCAPTCHA error occurred");
-    toast.error("reCAPTCHA error. Please refresh the page and try again.");
+    toast.error("reCAPTCHA failed to load. Please refresh the page and try again.");
+    setRecaptchaToken(null);
   };
 
   const onRecaptchaExpired = () => {
-    console.log("reCAPTCHA expired");
     setRecaptchaToken(null);
     toast.warning("reCAPTCHA expired. Please verify again.");
   };
@@ -173,10 +160,6 @@ const Contact: React.FC = () => {
     }
 
     // Verificar reCAPTCHA con validaciones adicionales
-    console.log(
-      "Validating reCAPTCHA token:",
-      recaptchaToken ? "Present" : "Missing"
-    );
     if (!recaptchaToken || recaptchaToken.length < 20) {
       toast.error("Please complete the reCAPTCHA verification.");
       return false;
@@ -266,11 +249,7 @@ const Contact: React.FC = () => {
         recaptchaToken: recaptchaToken,
       };
 
-      console.log(
-        "Sending request with reCAPTCHA token:",
-        recaptchaToken ? "Valid token" : "No token"
-      );
-      console.log("Request data keys:", Object.keys(requestData));
+
 
       const response = await axios.post(API_URL, requestData, {
         headers: {
@@ -302,12 +281,8 @@ const Contact: React.FC = () => {
         setRecaptchaToken(null);
       }
     } catch (error: any) {
-      console.error("Error sending email:", error);
-
-      // Debugging detallado del error
+      // Handle error without exposing sensitive information
       if (error.response) {
-        console.error("Response status:", error.response.status);
-        console.error("Response data:", error.response.data);
 
         if (
           error.response.status === 400 &&
@@ -320,10 +295,8 @@ const Contact: React.FC = () => {
           );
         }
       } else if (error.request) {
-        console.error("Network error:", error.request);
         toast.error("Network error. Please check your connection.");
       } else {
-        console.error("Request setup error:", error.message);
         toast.error("Request failed. Please try again.");
       }
     } finally {
@@ -527,24 +500,16 @@ const Contact: React.FC = () => {
                 )}
               </div>
 
-              {/* reCAPTCHA con debugging completo */}
+              {/* reCAPTCHA */}
               <div className="flex justify-start">
-                {RECAPTCHA_SITE_KEY ? (
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={RECAPTCHA_SITE_KEY}
-                    onChange={onRecaptchaChange}
-                    onErrored={onRecaptchaError}
-                    onExpired={onRecaptchaExpired}
-                  />
-                ) : (
-                  <div className="p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-xl">
-                    <p className="text-sm">
-                      reCAPTCHA not configured. Please set
-                      REACT_APP_RECAPTCHA_SITE_KEY environment variable.
-                    </p>
-                  </div>
-                )}
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={RECAPTCHA_SITE_KEY}
+                  onChange={onRecaptchaChange}
+                  onErrored={onRecaptchaError}
+                  onExpired={onRecaptchaExpired}
+                  theme="light"
+                />
               </div>
 
               <Button
