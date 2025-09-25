@@ -35,9 +35,9 @@ const FloatingContactButton: React.FC = () => {
     // Priorizar el formulario específico, fallback a la sección
     const contactForm = document.querySelector("#contact-form");
     const contactSection = document.querySelector("#contact");
-    
+
     const targetElement = contactForm || contactSection;
-    
+
     if (targetElement) {
       targetElement.scrollIntoView({
         behavior: "smooth",

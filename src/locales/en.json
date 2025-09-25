@@ -1,0 +1,173 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Product Owner & Web Developer",
+    "description": "specializing in high-performance, user-focused applications. Trying to blend frontend excellence with strategic product thinking to deliver solutions that drive measurable business growth.",
+    "cta": "Get in Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "",
+    "content": "With over two years in a fast-paced startup environment, I bridge technical expertise and strategic thinking—leading projects from concept to launch while aligning product vision with business goals.\n\nI thrive on transforming complex ideas into intuitive applications, leveraging AI as a core enabler to accelerate delivery, improve decision-making, and unlock innovative solutions.\n\nMy background in the retail industry sharpens my understanding of user behavior and market dynamics, allowing me to deliver products that are both user-focused and business-driven.",
+    "keyStrengths": {
+      "title": "Key Strengths",
+      "items": [
+        "Full-cycle product development, from concept to launch",
+        "Frontend mastery and responsive UX/UI",
+        "Cloud computing experience",
+        "AI integration & prompt engineering for rapid innovation",
+        "Team leadership & stakeholder communication"
+      ]
+    },
+    "focusAreas": {
+      "title": "Focus Areas",
+      "items": [
+        "Modern Frontend Development",
+        "Performance Optimization",
+        "UX/UI Excellence",
+        "Sustainable Development"
+      ]
+    },
+    "skillCards": {
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Fast communication with stakeholders & teams."
+      },
+      "projectManagement": {
+        "title": "Project Management",
+        "description": "Efficient management of timelines & resources."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Intuitive, simple and attractive UX/UI."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "description": "Clean, mantainable and scalable code."
+      }
+    }
+  },
+  "projects": {
+    "title": "Impact Stories",
+    "subtitle": "Here you can see in what I've been involved professionally in the last 2 years.",
+    "viewProject": "View Project",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code",
+    "labels": {
+      "private": "Private",
+      "role": "Role",
+      "problem": "Challenge",
+      "contribution": "My contribution",
+      "outcome": "Outcome",
+      "requestInfo": "Request more info",
+      "requestNDA": "Request NDA"
+    },
+    "stories": {
+      "protogen": {
+        "title": "ProtoGen — Erudita (Private)",
+        "imageAlt": "ProtoGen — Interface (anonymous)",
+        "role": "Co-frontend developer (secondary)",
+        "year": "2023",
+        "problem": "Need for a complete SaaS platform to meet the needs of the targeted demographic.",
+        "contribution": "Co-conceptualized the product with the CTO and CEO, designed the full UI and user flows, and implemented part of the frontend as one of two frontend developers.",
+        "outcome": "Delivered a robust, usable solution that improved researchers processes' efficiency, allowing them to quickly create protocol drafts; technical details and code are available under NDA.",
+        "technologies": ["React", "Tailwind", "Design", "UX"],
+        "note": "Note: The code is property of Erudita and cannot be shared publicly. A technical summary can be provided under NDA."
+      },
+      "sysreview": {
+        "title": "SysReviewPRO — Erudita (Private)",
+        "imageAlt": "SysReviewPRO — Interface (anonymous)",
+        "role": "Frontend developer, project owner.",
+        "year": "2025",
+        "problem": "Need for a complete SaaS platform to meet the needs of the targeted demographic.",
+        "contribution": "Co-conceptualized the product with the CTO and CEO, designed the full UI and user flows, and fully implemented the frontend as the only frontend developer.",
+        "outcome": "Delivered a robust, usable solution that improved researchers processes' efficiency, allowing them to quickly create Systematic Reviews; technical details and code are available under NDA.",
+        "technologies": ["React", "Tailwind", "Design", "UX"],
+        "note": "Note: The code is property of Erudita and cannot be shared publicly. A technical summary can be provided under NDA."
+      }
+    }
+  },
+  "skills": {
+    "title": "Key Skills & Certifications",
+    "subtitle": "Highlighting expertise across Frontend, Backend, Cloud, AI, and Business domains.",
+    "categories": {
+      "frontend": "Frontend Development",
+      "backend": "Backend & Infrastructure",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI & Emerging Tech",
+      "business": "Business & Strategy"
+    },
+    "technologies": {
+      "React": "React",
+      "WordPress Development": "WordPress Development",
+      "JavaScript / TypeScript": "JavaScript / TypeScript",
+      "Tailwind CSS": "Tailwind CSS",
+      "UI/UX Design": "UI/UX Design",
+      "Responsive Design & Accessibility": "Responsive Design & Accessibility",
+      "Figma Prototyping & UI Design": "Figma Prototyping & UI Design",
+      "SEO Strategy & Optimization": "SEO Strategy & Optimization",
+      "REST API Design & Integration": "REST API Design & Integration",
+      "Performance Optimization": "Performance Optimization",
+      "Serverless Architectures": "Serverless Architectures",
+      "Node.js": "Node.js",
+      "Containerization (Docker)": "Containerization (Docker)",
+      "Python": "Python",
+      "AWS (Certified Cloud Practitioner)": "AWS (Certified Cloud Practitioner)",
+      "Google Cloud Platform": "Google Cloud Platform",
+      "CI/CD Pipelines": "CI/CD Pipelines",
+      "Elastic Stack (Certified)": "Elastic Stack (Certified)",
+      "Prompt Engineering for AI Tools": "Prompt Engineering for AI Tools",
+      "AI Integration in Products": "AI Integration in Products",
+      "Blockchain Fundamentals": "Blockchain Fundamentals",
+      "Small Team Leadership": "Small Team Leadership",
+      "Strategic Product Planning": "Strategic Product Planning",
+      "Stakeholder Communication": "Stakeholder Communication",
+      "Feature Conceptualization & Roadmapping": "Feature Conceptualization & Roadmapping",
+      "Agile / Scrum Practices": "Agile / Scrum Practices",
+      "Macroeconomics & International Trading": "Macroeconomics & International Trading",
+      "Copywriting": "Copywriting"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project in mind? I'd love to hear about it! I'm always available for new opportunities and collaborations.",
+    "info": {
+      "title": "Contact Information",
+      "description": "You can contact me through any of these means. I respond to all messages within 24 hours.",
+      "email": "Email",
+      "location": "Location",
+      "locationValue": "Copenhagen, Denmark.",
+      "follow": "Follow me"
+    },
+    "form": {
+      "title": "Send me a message",
+      "fields": {
+        "name": "Full name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your name / Company name",
+        "email": "Contact E-mail",
+        "subject": "Subject",
+        "message": "Your message..."
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "recaptcha": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
+      "required": "*"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}
