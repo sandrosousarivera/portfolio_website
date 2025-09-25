@@ -11,7 +11,7 @@ import {
 } from "react-google-recaptcha-v3";
 
 const ContactForm: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -524,8 +524,48 @@ const ContactForm: React.FC = () => {
 
               {/* reCAPTCHA v3 info */}
               <div className="flex justify-start">
-                <p className="text-xs text-gray-500">
-                  {t("contact.form.recaptcha")}
+                <p className="text-xs text-gray-500 custom-recaptcha-notice">
+                  {i18n.language === "es" ? (
+                    <>
+                      Este sitio está protegido por reCAPTCHA y se aplican la{" "}
+                      <a
+                        href="https://policies.google.com/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Política de Privacidad
+                      </a>{" "}
+                      y los{" "}
+                      <a
+                        href="https://policies.google.com/terms"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Términos de Servicio
+                      </a>{" "}
+                      de Google.
+                    </>
+                  ) : (
+                    <>
+                      This site is protected by reCAPTCHA and the Google{" "}
+                      <a
+                        href="https://policies.google.com/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Privacy Policy
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="https://policies.google.com/terms"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Terms of Service
+                      </a>{" "}
+                      apply.
+                    </>
+                  )}
                 </p>
               </div>
 

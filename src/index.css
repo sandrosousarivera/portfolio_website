@@ -14,3 +14,39 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
 }
+
+/* reCAPTCHA badge customization - making it more discrete */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+/* Show a custom, more discrete reCAPTCHA notice */
+.custom-recaptcha-notice {
+  font-size: 10px;
+  color: #b6b4b5; /* silver */
+  text-align: left;
+  margin-top: 8px;
+}
+
+.custom-recaptcha-notice a {
+  color: #f6b62d; /* golden */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.custom-recaptcha-notice a:hover {
+  color: #6b8994; /* bottle */
+}
+
+/* Dark mode styles for reCAPTCHA notice */
+.dark .custom-recaptcha-notice {
+  color: #6e8fb0; /* dark-silver */
+}
+
+.dark .custom-recaptcha-notice a {
+  color: #f19d05; /* dark-golden */
+}
+
+.dark .custom-recaptcha-notice a:hover {
+  color: #2d6370; /* dark-bottle */
+}
