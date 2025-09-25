@@ -5,6 +5,7 @@ import About from "./components/molecules/about";
 import Projects from "./components/molecules/projects";
 import Skills from "./components/molecules/skills";
 import Contact from "./components/molecules/contact";
+import FloatingContactButton from "./components/atoms/FloatingContactButton";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Projects />
       <Skills />
       <Contact />
+      <FloatingContactButton />
     </div>
   );
 }

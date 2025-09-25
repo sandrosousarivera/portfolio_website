@@ -3,9 +3,24 @@ import Button from "../atoms/Button";
 import profileImg from "../../assets/profile1.jpeg";
 
 const Hero: React.FC = () => {
+  const scrollToContactForm = () => {
+    // Priorizar el formulario específico, fallback a la sección
+    const contactForm = document.querySelector("#contact-form");
+    const contactSection = document.querySelector("#contact");
+    
+    const targetElement = contactForm || contactSection;
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center", // Centra el formulario en la pantalla
+      });
+    }
+  };
+
   return (
     <section
-      id="home"
+      id="hero"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue to-bottle dark:from-dark-blue dark:to-dark-bottle pt-20"
     >
       <div className="max-w-7xl mx-auto px-6 py-20 text-center">
@@ -26,7 +41,7 @@ const Hero: React.FC = () => {
             deliver solutions that drive measurable business growth.
           </p>
           <div className="mt-8">
-            <Button href="#contact" className="bg-golden text-white">
+            <Button onClick={scrollToContactForm} className="bg-golden text-white">
               Get in Touch
             </Button>
           </div>

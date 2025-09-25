@@ -405,7 +405,7 @@ const ContactForm: React.FC = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"

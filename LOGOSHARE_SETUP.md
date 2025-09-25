@@ -23,7 +23,7 @@ Necesitas agregar el archivo `logoshare.jpg` a la carpeta `/public/` de tu proye
 /public/
   ├── favicon.ico
   ├── favicon.png
-  ├── favicon.svg  
+  ├── favicon.svg
   ├── logoshare.jpg  ← **AGREGAR AQUÍ**
   ├── logo192.png
   ├── logo512.png
@@ -41,6 +41,7 @@ Introduce tu URL: `https://sandrosousaweb.com` y verifica que aparezca `logoshar
 ## 📱 **Ejemplo de cómo se verá:**
 
 Cuando compartas tu web en redes sociales, aparecerá:
-- **Título**: "Sandro Sousa Rivera - Portfolio & Experience"  
+
+- **Título**: "Sandro Sousa Rivera - Portfolio & Experience"
 - **Descripción**: "Welcome to Sandro Sousa's portfolio, take a look and check out his experience!"
 - **Imagen**: Tu imagen `logoshare.jpg` (1200x630px)
