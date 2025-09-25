@@ -1,70 +1,60 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface ImpactStoryCardProps {
-  title: string;
+  storyKey: string;
   image: string;
-  imageAlt: string;
-  role: string;
-  year: string;
-  problem: string;
-  contribution: string;
-  outcome: string;
-  technologies: string[];
   requestInfoEmail: string;
   requestNDAEmail: string;
-  note: string;
 }
 
 const ImpactStoryCard: React.FC<ImpactStoryCardProps> = ({
-  title,
+  storyKey,
   image,
-  imageAlt,
-  role,
-  year,
-  problem,
-  contribution,
-  outcome,
-  technologies,
   requestInfoEmail,
   requestNDAEmail,
-  note,
 }) => {
+  const { t } = useTranslation();
+  const story = t(`projects.stories.${storyKey}`, {
+    returnObjects: true,
+  }) as any;
   return (
     <article className="max-w-3xl mx-auto bg-white dark:bg-dark-blue rounded-xl shadow-md overflow-hidden">
       <img
         src={image}
-        alt={imageAlt}
+        alt={story.imageAlt}
         className="w-full h-44 object-cover object-top"
       />
 
       <div className="p-6">
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-bold text-blue dark:text-white">
-            {title}
+            {story.title}
           </h3>
           <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">
-            Private
+            {t("projects.labels.private")}
           </span>
         </div>
 
         <p className="mt-3 text-sm text-gray-600 dark:text-silver">
-          Role: {role} · {year}
+          {t("projects.labels.role")}: {story.role} · {story.year}
         </p>
 
         <div className="mt-4 text-sm text-gray-700 dark:text-silver space-y-2">
           <p>
-            <strong>Problem:</strong> {problem}
+            <strong>{t("projects.labels.problem")}:</strong> {story.problem}
           </p>
           <p>
-            <strong>My contribution:</strong> {contribution}
+            <strong>{t("projects.labels.contribution")}:</strong>{" "}
+            {story.contribution}
           </p>
           <p>
-            <strong>Outcome:</strong> {outcome}
+            <strong>{t("projects.labels.outcome")}:</strong> {story.outcome}
           </p>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          {technologies.map((tech, index) => (
+          {story.technologies.map((tech: string, index: number) => (
             <span
               key={index}
               className={`text-xs px-2 py-1 rounded ${
@@ -82,21 +72,23 @@ const ImpactStoryCard: React.FC<ImpactStoryCardProps> = ({
 
         <div className="mt-6 flex gap-3">
           <a
-            href={`mailto:${requestInfoEmail}?subject=Interest in ${title}`}
+            href={`mailto:${requestInfoEmail}?subject=Interest in ${story.title}`}
             className="inline-block px-4 py-2 bg-blue text-white rounded hover:opacity-90"
           >
-            Request more info
+            {t("projects.labels.requestInfo")}
           </a>
 
           <a
-            href={`mailto:${requestNDAEmail}?subject=Request NDA - ${title}`}
+            href={`mailto:${requestNDAEmail}?subject=Request NDA - ${story.title}`}
             className="px-4 py-2 border border-golden text-golden rounded hover:bg-golden/10 dark:border-dark-golden dark:text-dark-golden"
           >
-            Request NDA
+            {t("projects.labels.requestNDA")}
           </a>
         </div>
 
-        <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">{note}</p>
+        <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
+          {story.note}
+        </p>
       </div>
     </article>
   );

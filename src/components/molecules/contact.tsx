@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Mail, MapPin, Linkedin } from "lucide-react";
 import Button from "../atoms/Button";
 import axios from "axios";
@@ -10,6 +11,7 @@ import {
 } from "react-google-recaptcha-v3";
 
 const ContactForm: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -323,12 +325,11 @@ const ContactForm: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-blue dark:text-white mb-4">
-            Contact
+            {t("contact.title")}
           </h2>
           <div className="w-24 h-1 bg-golden dark:bg-dark-golden mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-silver max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it! I'm always
-            available for new opportunities and collaborations.
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -337,11 +338,10 @@ const ContactForm: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-blue dark:text-white mb-6">
-                Contact Information
+                {t("contact.info.title")}
               </h3>
               <p className="text-gray-600 dark:text-silver mb-8">
-                You can contact me through any of these means. I respond to all
-                messages within 24 hours.
+                {t("contact.info.description")}
               </p>
             </div>
 
@@ -351,7 +351,9 @@ const ContactForm: React.FC = () => {
                   <Mail className="text-white" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-blue dark:text-white">Email</h4>
+                  <h4 className="font-bold text-blue dark:text-white">
+                    {t("contact.info.email")}
+                  </h4>
                   <a
                     href="mailto:sandropolixe@gmail.com"
                     className="text-silver dark:text-dark-silver hover:text-golden dark:hover:text-dark-golden transition-colors duration-300"
@@ -367,10 +369,10 @@ const ContactForm: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-blue dark:text-white">
-                    Location
+                    {t("contact.info.location")}
                   </h4>
                   <p className="text-silver dark:text-dark-silver">
-                    Copenhagen, Denmark.
+                    {t("contact.info.locationValue")}
                   </p>
                 </div>
               </div>
@@ -378,7 +380,7 @@ const ContactForm: React.FC = () => {
 
             <div className="pt-8">
               <h4 className="font-bold text-blue dark:text-white mb-4">
-                Follow me
+                {t("contact.info.follow")}
               </h4>
               <div className="flex space-x-4">
                 <a
@@ -396,7 +398,7 @@ const ContactForm: React.FC = () => {
           {/* Formulario */}
           <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-blue dark:text-white mb-6">
-              Send me a message
+              {t("contact.form.title")}
             </h3>
 
             {rateLimitMessage && (
@@ -405,13 +407,17 @@ const ContactForm: React.FC = () => {
               </div>
             )}
 
-            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+            <form
+              id="contact-form"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 dark:text-silver mb-2"
                 >
-                  Full name *
+                  {t("contact.form.fields.name")} {t("contact.form.required")}
                 </label>
                 <input
                   type="text"
@@ -424,7 +430,7 @@ const ContactForm: React.FC = () => {
                       ? "border-red-500"
                       : "border-gray-300 dark:border-gray-600"
                   }`}
-                  placeholder="Your name / Company name"
+                  placeholder={t("contact.form.placeholders.name")}
                 />
                 {errors.name && (
                   <span className="text-red-500 text-sm mt-1 block">
@@ -438,7 +444,7 @@ const ContactForm: React.FC = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 dark:text-silver mb-2"
                 >
-                  Email *
+                  {t("contact.form.fields.email")} {t("contact.form.required")}
                 </label>
                 <input
                   type="email"
@@ -451,7 +457,7 @@ const ContactForm: React.FC = () => {
                       ? "border-red-500"
                       : "border-gray-300 dark:border-gray-600"
                   }`}
-                  placeholder="Contact E-mail"
+                  placeholder={t("contact.form.placeholders.email")}
                 />
                 {errors.email && (
                   <span className="text-red-500 text-sm mt-1 block">
@@ -465,7 +471,8 @@ const ContactForm: React.FC = () => {
                   htmlFor="subject"
                   className="block text-sm font-medium text-gray-700 dark:text-silver mb-2"
                 >
-                  Subject *
+                  {t("contact.form.fields.subject")}{" "}
+                  {t("contact.form.required")}
                 </label>
                 <input
                   type="text"
@@ -478,7 +485,7 @@ const ContactForm: React.FC = () => {
                       ? "border-red-500"
                       : "border-gray-300 dark:border-gray-600"
                   }`}
-                  placeholder="Subject"
+                  placeholder={t("contact.form.placeholders.subject")}
                 />
                 {errors.subject && (
                   <span className="text-red-500 text-sm mt-1 block">
@@ -492,7 +499,8 @@ const ContactForm: React.FC = () => {
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 dark:text-silver mb-2"
                 >
-                  Message *
+                  {t("contact.form.fields.message")}{" "}
+                  {t("contact.form.required")}
                 </label>
                 <textarea
                   id="message"
@@ -505,7 +513,7 @@ const ContactForm: React.FC = () => {
                       ? "border-red-500"
                       : "border-gray-300 dark:border-gray-600"
                   }`}
-                  placeholder="Your message..."
+                  placeholder={t("contact.form.placeholders.message")}
                 />
                 {errors.message && (
                   <span className="text-red-500 text-sm mt-1 block">
@@ -517,21 +525,7 @@ const ContactForm: React.FC = () => {
               {/* reCAPTCHA v3 info */}
               <div className="flex justify-start">
                 <p className="text-xs text-gray-500">
-                  This site is protected by reCAPTCHA and the Google{" "}
-                  <a
-                    href="https://policies.google.com/privacy"
-                    className="text-blue hover:underline"
-                  >
-                    Privacy Policy
-                  </a>{" "}
-                  and{" "}
-                  <a
-                    href="https://policies.google.com/terms"
-                    className="text-blue hover:underline"
-                  >
-                    Terms of Service
-                  </a>{" "}
-                  apply.
+                  {t("contact.form.recaptcha")}
                 </p>
               </div>
 
@@ -541,7 +535,9 @@ const ContactForm: React.FC = () => {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting
+                  ? t("contact.form.sending")
+                  : t("contact.form.submit")}
               </Button>
             </form>
           </div>
