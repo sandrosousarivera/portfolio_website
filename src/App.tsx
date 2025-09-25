@@ -6,16 +6,19 @@ import Projects from "./components/molecules/projects";
 import Skills from "./components/molecules/skills";
 import Contact from "./components/molecules/contact";
 import FloatingContactButton from "./components/atoms/FloatingContactButton";
+import LanguageTransition from "./components/atoms/LanguageTransition";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
+      <LanguageTransition>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </LanguageTransition>
       <FloatingContactButton />
     </div>
   );

@@ -1,9 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Target, Zap, Palette, Wrench } from "lucide-react";
 import Chip from "../atoms/Chip";
 
 const About: React.FC = () => {
-  // translations removed — content is static English
+  const { t } = useTranslation();
 
   const technologies = [
     "React",
@@ -22,23 +23,11 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-blue dark:text-white mb-4">
-            About Me
+            {t("about.title")}
           </h2>
           <div className="w-24 h-1 bg-golden dark:bg-dark-golden mx-auto"></div>
-          <p className="text-lg text-gray-600 dark:text-silver max-w-4xl mx-auto mt-8">
-            With over two years in a fast-paced startup environment, I bridge
-            technical expertise and strategic thinking—leading projects from
-            concept to launch while aligning product vision with business goals.
-          </p>
-          <p className="text-lg text-gray-600 dark:text-silver max-w-4xl mx-auto mt-4">
-            I thrive on transforming complex ideas into intuitive applications,
-            leveraging AI as a core enabler to accelerate delivery, improve
-            decision-making, and unlock innovative solutions.
-            <br />
-            <br />
-            My background in the retail industry sharpens my understanding of
-            user behavior and market dynamics, allowing me to deliver products
-            that are both user-focused and business-driven.
+          <p className="text-lg text-gray-600 dark:text-silver max-w-4xl mx-auto mt-8 whitespace-pre-line">
+            {t("about.content")}
           </p>
         </div>
 
@@ -48,54 +37,38 @@ const About: React.FC = () => {
             {/* Key Strengths */}
             <div className="flex flex-col items-center">
               <h3 className="text-2xl font-bold text-blue dark:text-white mb-6">
-                Key Strengths
+                {t("about.keyStrengths.title")}
               </h3>
               <ul className="space-y-3 text-gray-600 dark:text-silver w-full max-w-md">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-golden dark:bg-dark-golden rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Full-cycle product development, from concept to launch
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-golden dark:bg-dark-golden rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Frontend mastery and responsive UX/UI
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-golden dark:bg-dark-golden rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Cloud computing experience
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-golden dark:bg-dark-golden rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  AI integration & prompt engineering for rapid innovation
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-golden dark:bg-dark-golden rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Team leadership & stakeholder communication
-                </li>
+                {(
+                  t("about.keyStrengths.items", {
+                    returnObjects: true,
+                  }) as string[]
+                ).map((item: string, index: number) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-golden dark:bg-dark-golden rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Focus Areas */}
             <div className="flex flex-col items-center">
               <h3 className="text-2xl font-bold text-blue dark:text-white mb-6">
-                Focus Areas
+                {t("about.focusAreas.title")}
               </h3>
               <ul className="space-y-3 text-gray-600 dark:text-silver w-full max-w-xs">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-carmin dark:bg-dark-carmin rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Modern Frontend Development
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-carmin dark:bg-dark-carmin rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Performance Optimization
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-carmin dark:bg-dark-carmin rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  UX/UI Excellence
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-carmin dark:bg-dark-carmin rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Sustainable Development
-                </li>
+                {(
+                  t("about.focusAreas.items", {
+                    returnObjects: true,
+                  }) as string[]
+                ).map((item: string, index: number) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-carmin dark:bg-dark-carmin rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -121,10 +94,10 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-blue dark:text-white mb-2">
-                      Collaboration
+                      {t("about.skillCards.collaboration.title")}
                     </h3>
                     <p className="text-gray-600 dark:text-silver">
-                      Fast communication with stakeholders & teams.
+                      {t("about.skillCards.collaboration.description")}
                     </p>
                   </div>
                 </div>
@@ -138,10 +111,10 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-blue dark:text-white mb-2">
-                      Project Management
+                      {t("about.skillCards.projectManagement.title")}
                     </h3>
                     <p className="text-gray-600 dark:text-silver">
-                      Efficient management of timelines & resources.
+                      {t("about.skillCards.projectManagement.description")}
                     </p>
                   </div>
                 </div>
@@ -155,10 +128,10 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-blue dark:text-white mb-2">
-                      Design
+                      {t("about.skillCards.design.title")}
                     </h3>
                     <p className="text-gray-600 dark:text-silver">
-                      Intuitive, simple and attractive UX/UI.
+                      {t("about.skillCards.design.description")}
                     </p>
                   </div>
                 </div>
@@ -172,10 +145,10 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-blue dark:text-white mb-2">
-                      Maintenance
+                      {t("about.skillCards.maintenance.title")}
                     </h3>
                     <p className="text-gray-600 dark:text-silver">
-                      Clean, mantainable and scalable code.
+                      {t("about.skillCards.maintenance.description")}
                     </p>
                   </div>
                 </div>

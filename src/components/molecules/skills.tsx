@@ -1,5 +1,5 @@
 import React from "react";
-// translations removed — content is static English
+import { useTranslation } from "react-i18next";
 import SkillCard from "../atoms/SkillCard";
 
 interface Technology {
@@ -48,23 +48,24 @@ const technologies: Technology[] = [
 ];
 
 const Skills: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-dark-blue">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-blue dark:text-white mb-4">
-            Key Skills & Certifications
+            {t("skills.title")}
           </h2>
           <div className="w-24 h-1 bg-golden dark:bg-dark-golden mx-auto"></div>
           <p className="text-lg text-gray-600 dark:text-silver max-w-2xl mx-auto mt-8">
-            Highlighting expertise across Frontend, Backend, Cloud, AI, and
-            Business domains.
+            {t("skills.subtitle")}
           </p>
         </div>
         <div className="space-y-12">
           <div>
             <h3 className="text-xl font-bold text-blue dark:text-white mb-4">
-              Frontend Development
+              {t("skills.categories.frontend")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {technologies.slice(0, 10).map((tech) => (
@@ -78,7 +79,7 @@ const Skills: React.FC = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue dark:text-white mb-4">
-              Backend & Infrastructure
+              {t("skills.categories.backend")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {technologies.slice(10, 14).map((tech) => (
@@ -92,7 +93,7 @@ const Skills: React.FC = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue dark:text-white mb-4">
-              Cloud & DevOps
+              {t("skills.categories.cloud")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {technologies.slice(14, 18).map((tech) => (
@@ -106,7 +107,7 @@ const Skills: React.FC = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue dark:text-white mb-4">
-              AI & Emerging Tech
+              {t("skills.categories.ai")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {technologies.slice(18, 21).map((tech) => (
@@ -120,7 +121,7 @@ const Skills: React.FC = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue dark:text-white mb-4">
-              Business & Strategy
+              {t("skills.categories.business")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {technologies.slice(21).map((tech) => (

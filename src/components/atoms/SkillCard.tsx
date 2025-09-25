@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface SkillCardProps {
   name: string;
@@ -13,6 +14,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
   icon,
   className = "",
 }) => {
+  const { t } = useTranslation();
   const getLevelColor = (level: number) => {
     if (level >= 90) return "bg-golden dark:bg-dark-golden";
     if (level >= 80) return "bg-carmin dark:bg-dark-carmin";
@@ -32,7 +34,9 @@ const SkillCard: React.FC<SkillCardProps> = ({
               {icon}
             </span>
           )}
-          <span className="font-medium text-blue dark:text-white">{name}</span>
+          <span className="font-medium text-blue dark:text-white">
+            {t(`skills.technologies.${name}`)}
+          </span>
         </div>
         <span className="text-sm text-gray-600 dark:text-silver">{level}%</span>
       </div>

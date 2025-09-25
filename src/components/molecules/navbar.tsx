@@ -1,10 +1,13 @@
 // components/Navbar.tsx
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import LightIcon from "../../assets/light.svg";
 import DarkIcon from "../../assets/dark.svg";
+import LanguageToggle from "../atoms/LanguageToggle";
 
 const Navbar: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -41,6 +44,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-4">
+          <LanguageToggle />
           <button
             onClick={toggleTheme}
             className="hover:text-silver dark:hover:text-dark-silver transition"

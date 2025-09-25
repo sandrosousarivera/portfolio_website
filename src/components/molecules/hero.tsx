@@ -1,15 +1,18 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Button from "../atoms/Button";
 import profileImg from "../../assets/profile1.jpeg";
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   const scrollToContactForm = () => {
     // Priorizar el formulario específico, fallback a la sección
     const contactForm = document.querySelector("#contact-form");
     const contactSection = document.querySelector("#contact");
-    
+
     const targetElement = contactForm || contactSection;
-    
+
     if (targetElement) {
       targetElement.scrollIntoView({
         behavior: "smooth",
@@ -33,16 +36,17 @@ const Hero: React.FC = () => {
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Product Owner & Web Developer
+            {t("hero.title")}
           </h1>
           <p className="text-lg text-silver max-w-2xl mx-auto">
-            specializing in high-performance, user-focused applications. Trying
-            to blend frontend excellence with strategic product thinking to
-            deliver solutions that drive measurable business growth.
+            {t("hero.description")}
           </p>
           <div className="mt-8">
-            <Button onClick={scrollToContactForm} className="bg-golden text-white">
-              Get in Touch
+            <Button
+              onClick={scrollToContactForm}
+              className="bg-golden text-white"
+            >
+              {t("hero.cta")}
             </Button>
           </div>
         </div>

@@ -1,0 +1,174 @@
+{
+  "navbar": {
+    "name": "Sandro Sousa - Desarrollador Web",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Product Owner y desarrollador WEB",
+    "description": "especializado en aplicaciones de alto rendimiento y centradas en el usuario. Busco combinar la excelencia en frontend con una visión estratégica de producto para ofrecer soluciones que impulsen un crecimiento empresarial medible.",
+    "cta": "Ponerse en contacto"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "",
+    "content": "Con más de dos años en un entorno startup de ritmo acelerado, conecto expertise técnico con visión estratégica—liderando proyectos desde la idea hasta el lanzamiento, siempre alineando la visión de producto con los objetivos de negocio.\n\nMe motiva transformar ideas complejas en aplicaciones intuitivas, utilizando la IA como motor clave para acelerar la entrega, mejorar la toma de decisiones y desbloquear soluciones innovadoras.\n\nMi experiencia en la industria retail, como especialista en ventas afina mi comprensión del comportamiento del cliente y de la dinámica del mercado, lo que me permite crear productos que son tanto user-focused como business-driven.",
+    "keyStrengths": {
+      "title": "Fortalezas Clave",
+      "items": [
+        "Desarrollo de producto full-cycle, desde el concepto hasta el lanzamiento",
+        "Dominio de frontend y UX/UI responsive",
+        "Experiencia en cloud computing",
+        "Integración de IA y prompt engineering para innovación rápida",
+        "Liderazgo de equipo y comunicación con stakeholders"
+      ]
+    },
+    "focusAreas": {
+      "title": "Áreas de Enfoque",
+      "items": [
+        "Desarrollo frontend actualizado",
+        "Optimización de rendimiento",
+        "Excelencia en UX/UI",
+        "Desarrollo sostenible"
+      ]
+    },
+    "skillCards": {
+      "collaboration": {
+        "title": "Colaboración",
+        "description": "Comunicación rápida con stakeholders y equipos."
+      },
+      "projectManagement": {
+        "title": "Gestión de Proyectos",
+        "description": "Gestión eficiente de tiempos y recursos."
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "UX/UI intuitiva, simple y atractiva."
+      },
+      "maintenance": {
+        "title": "Mantenimiento",
+        "description": "Código limpio, mantenible y escalable."
+      }
+    }
+  },
+  "projects": {
+    "title": "Historias de Impacto",
+    "subtitle": "Aquí puedes ver en qué he estado involucrado profesionalmente durante los últimos 2 años.",
+    "viewProject": "Ver Proyecto",
+    "liveDemo": "Demo en Vivo",
+    "sourceCode": "Código Fuente",
+    "labels": {
+      "private": "Privado",
+      "role": "Rol",
+      "problem": "Reto",
+      "contribution": "Mi contribución",
+      "outcome": "Resultado",
+      "requestInfo": "Solicitar info",
+      "requestNDA": "Solicitar NDA"
+    },
+    "stories": {
+      "protogen": {
+        "title": "ProtoGen — Erudita (Privado)",
+        "imageAlt": "ProtoGen — Interface (anónimo)",
+        "role": "Co-desarrollador frontend (secundario)",
+        "year": "2023",
+        "problem": "Necesidad de una plataforma SaaS completa para satisfacer las necesidades del público objetivo.",
+        "contribution": "Co-conceptualicé el producto con el CTO y CEO, diseñé la UI y los flujos de usuario, e implementé parte del frontend como uno de los dos desarrolladores frontend.",
+        "outcome": "Entregué una solución robusta y usable que mejoró la eficiencia de los procesos de los investigadores, permitiéndoles crear borradores de protocolos rápidamente; detalles técnicos y código disponibles bajo NDA.",
+        "technologies": ["React", "Tailwind", "Diseño", "UX"],
+        "note": "Nota: El código es propiedad de Erudita y no puede compartirse públicamente. Se puede proporcionar un resumen técnico bajo NDA."
+      },
+      "sysreview": {
+        "title": "SysReviewPRO — Erudita (Privado)",
+        "imageAlt": "SysReviewPRO — Interface (anónimo)",
+        "role": "Desarrollador frontend, propietario del proyecto",
+        "year": "2025",
+        "problem": "Necesidad de una plataforma SaaS completa para satisfacer las necesidades del público objetivo.",
+        "contribution": "Co-conceptualicé el producto con el CTO y CEO, diseñé toda la UI y los flujos de usuario, e implementé completamente el frontend como único desarrollador frontend.",
+        "outcome": "Entregué una solución robusta y usable que mejoró la eficiencia de los procesos de los investigadores, permitiéndoles crear revisiones sistemáticas rápidamente; detalles técnicos y código disponibles bajo NDA.",
+        "technologies": ["React", "Tailwind", "Diseño", "UX"],
+        "note": "Nota: El código es propiedad de Erudita y no puede compartirse públicamente. Se puede proporcionar un resumen técnico bajo NDA."
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades Clave y Certificaciones",
+    "subtitle": "Destacando experiencia en Frontend, Backend, Cloud, IA y dominios de negocio.",
+    "categories": {
+      "frontend": "Desarrollo Frontend",
+      "backend": "Backend e infraestructura",
+      "cloud": "Cloud y DevOps",
+      "ai": "IA y tecnologia emergente",
+      "business": "Negocio y estrategia"
+    },
+    "technologies": {
+      "React": "React",
+      "WordPress Development": "Desarrollo WordPress",
+      "JavaScript / TypeScript": "JavaScript / TypeScript",
+      "Tailwind CSS": "Tailwind CSS",
+      "UI/UX Design": "UI/UX Design",
+      "Responsive Design & Accessibility": "Diseño responsive y Accesibilidad",
+      "Figma Prototyping & UI Design": "Prototipado Figma y Diseño de UI",
+      "SEO Strategy & Optimization": "Estrategia SEO & Optimización",
+      "REST API Design & Integration": "Diseño e integración REST API",
+      "Performance Optimization": "Optimización de rendimiento",
+      "Serverless Architectures": "Arquitecturas Serverless",
+      "Node.js": "Node.js",
+      "Containerization (Docker)": "Containerization (Docker)",
+      "Python": "Python",
+      "AWS (Certified Cloud Practitioner)": "AWS (Certified Cloud Practitioner)",
+      "Google Cloud Platform": "Google Cloud Platform",
+      "CI/CD Pipelines": "CI/CD Pipelines",
+      "Elastic Stack (Certified)": "Elastic Stack (Certified)",
+      "Prompt Engineering for AI Tools": "Ingenieria de prompts para modelos IA",
+      "AI Integration in Products": "Integración de IA en producto",
+      "Blockchain Fundamentals": "Blockchain Fundamentals",
+      "Small Team Leadership": "Liderazgo de equipos",
+      "Strategic Product Planning": "Planificación estratégica de producto",
+      "Stakeholder Communication": "Comunicación con socios",
+      "Feature Conceptualization & Roadmapping": "Conceptualización de features y planificación",
+      "Agile / Scrum Practices": "Agile / Scrum Practices",
+      "Macroeconomics & International Trading": "Macroeconomía y trading de mercados",
+      "Copywriting": "Copywriting"
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Me encantaría conocerlo! Siempre estoy disponible para nuevas oportunidades y colaboraciones.",
+    "info": {
+      "title": "Información de Contacto",
+      "description": "Puedes contactarme por cualquiera de estos medios. Respondo todos los mensajes dentro de 24 horas.",
+      "email": "Email",
+      "location": "Ubicación",
+      "locationValue": "Copenhague, Dinamarca",
+      "follow": "Sígueme"
+    },
+    "form": {
+      "title": "Envíame un mensaje",
+      "fields": {
+        "name": "Nombre completo",
+        "email": "Email",
+        "subject": "Asunto",
+        "message": "Mensaje"
+      },
+      "placeholders": {
+        "name": "Tu nombre / nombre de la empresa",
+        "email": "Correo de contacto",
+        "subject": "Asunto",
+        "message": "Tu mensaje…"
+      },
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "recaptcha": "Este sitio está protegido por reCAPTCHA y se aplican la Política de Privacidad y los Términos de Servicio de Google.",
+      "required": "*"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  }
+}
