@@ -1,5 +1,6 @@
 // components/Navbar.tsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LightIcon from "../../assets/light.svg";
 import DarkIcon from "../../assets/dark.svg";
@@ -36,14 +37,33 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-blue text-white px-6 py-4 dark:bg-dark-blue dark:text-white">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-2">
+        <Link
+          to="/"
+          className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+        >
           <img src="/favicon.svg" alt="Logo" className="w-8 h-8" />
           <div className="text-golden text-xl font-bold dark:text-dark-golden">
             Sandro Sousa
           </div>
-        </div>
+        </Link>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-6">
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-6">
+            <Link
+              to="/"
+              className="text-white hover:text-golden dark:hover:text-dark-golden transition-colors"
+            >
+              Portfolio
+            </Link>
+            <Link
+              to="/art"
+              className="text-white hover:text-golden dark:hover:text-dark-golden transition-colors"
+            >
+              Art
+            </Link>
+          </div>
+
           <LanguageToggle />
           <button
             onClick={toggleTheme}
