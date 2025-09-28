@@ -50,3 +50,13 @@ body {
 .dark .custom-recaptcha-notice a:hover {
   color: #2d6370; /* dark-bottle */
 }
+
+/* Hide scrollbar globally */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}

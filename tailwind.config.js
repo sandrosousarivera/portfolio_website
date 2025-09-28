@@ -31,9 +31,21 @@ module.exports = {
         "art-dark": "#000000", // Negro absoluto
       },
       backgroundImage: {
-        // Gradiente principal del portfolio artístico
+        // Gradiente principal del portfolio artístico (Light con más contraste)
         "art-gradient":
-          "radial-gradient(at top left, #f7fbfb, transparent), radial-gradient(at top right, #d9eaea, transparent), radial-gradient(at bottom left, #cbe0e1, transparent), radial-gradient(at bottom right, #bed5d5, transparent), radial-gradient(circle at center, #3a4a4a, transparent 80%)",
+          "radial-gradient(at top left, #ffffff 0%, #e8f3f3 35%, transparent 70%), \
+     radial-gradient(at top right, #eef7f7 0%, #cbe0e1 35%, transparent 70%), \
+     radial-gradient(at bottom left, #d9eaea 0%, #bed5d5 35%, transparent 70%), \
+     radial-gradient(at bottom right, #cbe0e1 0%, #97adad 35%, transparent 70%), \
+     radial-gradient(circle at center, #2b3a3a 15%, transparent 80%)",
+
+        // Versión oscura con más contraste
+        "dark-art-gradient":
+          "radial-gradient(at top left, #506b85 0%, #2f4254 35%, transparent 70%), \
+     radial-gradient(at top right, #5c7a95 0%, #34495e 35%, transparent 70%), \
+     radial-gradient(at bottom left, #3e5469 0%, #1c2a36 35%, transparent 70%), \
+     radial-gradient(at bottom right, #2f4254 0%, #141b22 35%, transparent 70%), \
+     radial-gradient(circle at center, #0a0f14 15%, transparent 85%)",
       },
     },
   },

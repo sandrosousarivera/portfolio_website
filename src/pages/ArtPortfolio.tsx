@@ -1,22 +1,36 @@
-import React from "react";
-import { useScrollTransition } from "../hooks/useScrollDarken";
+import React, { useState, useEffect } from "react";
+import ArtNavbar from "../components/art/ArtNavbar";
 
 const ArtPortfolio: React.FC = () => {
-  const transition = useScrollTransition("#BDDBDA");
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDarkTheme(document.body.classList.contains("art-dark"));
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Listen for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const baseGradient = isDarkTheme ? "bg-dark-art-gradient" : "bg-art-gradient";
 
   return (
     <div
-      className="min-h-screen relative transition-all duration-300 ease-out"
-      style={{
-        background: `linear-gradient(${
-          transition * 180
-        }deg, rgba(189, 219, 218, ${transition}) 0%, rgba(189, 219, 218, ${
-          transition * 0.8
-        }) 100%), radial-gradient(at top left, #f7fbfb, transparent), radial-gradient(at top right, #d9eaea, transparent), radial-gradient(at bottom left, #cbe0e1, transparent), radial-gradient(at bottom right, #bed5d5, transparent), radial-gradient(circle at center, #3a4a4a, transparent 80%)`,
-      }}
+      className={`min-h-screen relative transition-all duration-300 ease-out ${baseGradient}`}
     >
+      <ArtNavbar />
       {/* Contenido de la página */}
-      <div className="relative z-10">
+      <div className="relative z-10 pt-20">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center px-6">
           <div className="text-center">
