@@ -33,11 +33,7 @@ module.exports = {
       backgroundImage: {
         // Gradiente principal del portfolio artístico
         "art-gradient":
-          "linear-gradient(180deg, rgba(26, 26, 26, 1) 0%, rgba(255, 255, 255, 1) 100%)",
-        "art-gradient-reverse":
-          "linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(26, 26, 26, 1) 100%)",
-        "art-subtle":
-          "linear-gradient(180deg, rgba(248, 248, 248, 0.95) 0%, rgba(255, 255, 255, 1) 100%)",
+          "radial-gradient(at top left, #f7fbfb, transparent), radial-gradient(at top right, #d9eaea, transparent), radial-gradient(at bottom left, #cbe0e1, transparent), radial-gradient(at bottom right, #bed5d5, transparent), radial-gradient(circle at center, #3a4a4a, transparent 80%)",
       },
     },
   },
