@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ArtNavbar from "../components/art/ArtNavbar";
-import ArtGallery from "../components/art/ArtGallery";
+import MainGallery from "../components/art/MainGallery";
+import { artworks } from "../data/artworks";
 
 const ArtPortfolio: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -30,7 +31,7 @@ const ArtPortfolio: React.FC = () => {
       {/* Gallery Content */}
       <div className="pt-20 px-6 pb-12">
         <div className="max-w-7xl mx-auto">
-          <ArtGallery />
+          <MainGallery images={artworks} />
         </div>
       </div>
     </div>
