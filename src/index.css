@@ -60,3 +60,22 @@ html {
 ::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
 }
+
+/* Animaciones para MainGallery */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 600px;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.5s ease-out forwards;
+  overflow: hidden;
+}
