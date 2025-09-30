@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Artwork } from "../../data/artworks";
 
 interface MainGalleryProps {
@@ -14,6 +14,39 @@ const MainGallery: React.FC<MainGalleryProps> = ({
 }) => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  // Overlay modal refs/state (no browser Fullscreen API)
+  const mediaRef = useRef<HTMLElement | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+  const overlayMediaRef = useRef<HTMLVideoElement | HTMLImageElement | null>(
+    null
+  );
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+  // Lock body scroll while overlay is open
+  useEffect(() => {
+    if (isOverlayOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOverlayOpen]);
+
+  const openOverlay = (e?: React.SyntheticEvent) => {
+    e && e.stopPropagation();
+    setIsOverlayOpen(true);
+  };
+
+  const closeOverlay = () => {
+    // pause video if present
+    const v: any = overlayMediaRef.current;
+    if (v && v.tagName && v.tagName.toLowerCase() === "video") {
+      try {
+        v.pause();
+      } catch (_) {}
+    }
+    setIsOverlayOpen(false);
+  };
 
   // Función para crear URLs de Cloudinary sin transformaciones forzadas
   const createThumbnailUrl = (publicId: string) => {
@@ -128,19 +161,35 @@ const MainGallery: React.FC<MainGalleryProps> = ({
                     <div className="w-full lg:w-auto flex justify-center items-center">
                       {selectedArtwork.type === "video" ? (
                         <video
+                          ref={(el: HTMLVideoElement | null) => {
+                            mediaRef.current = el;
+                            overlayMediaRef.current = el;
+                          }}
                           src={`https://res.cloudinary.com/${
                             process.env.REACT_APP_CLOUDINARY_CLOUD_NAME ||
                             "dgmd7zrcm"
                           }/video/upload/w_800/${selectedArtwork.publicId}.mp4`}
-                          className="w-full h-full max-w-full max-h-[40vh] lg:max-w-2xl lg:max-h-[80vh] object-contain"
+                          className="w-full h-full max-w-full max-h-[40vh] lg:max-w-2xl lg:max-h-[80vh] object-contain cursor-zoom-in"
                           controls
                           preload="metadata"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openOverlay();
+                          }}
                         />
                       ) : (
                         <img
+                          ref={(el: HTMLImageElement | null) => {
+                            mediaRef.current = el;
+                            overlayMediaRef.current = el as any;
+                          }}
                           src={createFullUrl(selectedArtwork.publicId)}
                           alt={selectedArtwork.alt}
-                          className="w-full h-auto max-w-full lg:max-w-2xl object-contain"
+                          className="w-full h-auto max-w-full lg:max-w-2xl object-contain cursor-zoom-in"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openOverlay();
+                          }}
                         />
                       )}
                     </div>
@@ -192,6 +241,42 @@ const MainGallery: React.FC<MainGalleryProps> = ({
           </React.Fragment>
         ))}
       </div>
+      {/* Fullscreen overlay with translucent blurred background */}
+      {isOverlayOpen && (
+        <div
+          ref={overlayRef}
+          className="fixed inset-0 z-50 flex items-center justify-center overlay-blur"
+          onClick={() => closeOverlay()}
+        >
+          <div className="relative max-w-5xl w-full px-4">
+            {/* Media inside overlay - no close button, clicking anywhere closes overlay */}
+            <div className="flex items-center justify-center">
+              {selectedArtwork?.type === "video" ? (
+                <video
+                  ref={(el: HTMLVideoElement | null) => {
+                    overlayMediaRef.current = el;
+                  }}
+                  src={`https://res.cloudinary.com/${
+                    process.env.REACT_APP_CLOUDINARY_CLOUD_NAME || "dgmd7zrcm"
+                  }/video/upload/w_1600/${selectedArtwork?.publicId}.mp4`}
+                  className="w-full h-auto max-h-[90vh] object-contain"
+                  controls
+                  autoPlay
+                />
+              ) : (
+                <img
+                  ref={(el: HTMLImageElement | null) => {
+                    overlayMediaRef.current = el as any;
+                  }}
+                  src={createFullUrl(selectedArtwork?.publicId || "")}
+                  alt={selectedArtwork?.alt}
+                  className="w-full h-auto max-h-[90vh] object-contain"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
