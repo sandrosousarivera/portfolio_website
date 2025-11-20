@@ -24,28 +24,37 @@ module.exports = {
 
         // Paleta de colores para Portfolio Artístico
         "art-primary": "#1a1a1a", // Negro profundo
-        "art-secondary": "#f8f8f8", // Blanco casi puro
         "art-accent": "#d4af37", // Dorado elegante
         "art-muted": "#8a8a8a", // Gris medio
-        "art-light": "#ffffff", // Blanco puro
         "art-dark": "#000000", // Negro absoluto
+        // Blanco puro y variaciones basadas en #e1f0f0
+        "art-white": {
+          DEFAULT: "#e1f0f0",
+          50: "#fbfefe",
+          100: "#f7fcfc",
+          200: "#e9f6f6",
+          300: "#d9efee",
+          400: "#cfe7e6",
+          500: "#b7cbc9",
+        },
+        "white-pure": "#ffffff",
       },
       backgroundImage: {
-        // Gradiente principal del portfolio artístico (Light con más contraste)
+        // Gradiente principal del portfolio artístico (variaciones de #e1f0f0)
         "art-gradient":
-          "radial-gradient(at top left, #ffffff 0%, #e8f3f3 35%, transparent 70%), \
-     radial-gradient(at top right, #eef7f7 0%, #cbe0e1 35%, transparent 70%), \
-     radial-gradient(at bottom left, #d9eaea 0%, #bed5d5 35%, transparent 70%), \
-     radial-gradient(at bottom right, #cbe0e1 0%, #97adad 35%, transparent 70%), \
-     radial-gradient(circle at center, #2b3a3a 15%, transparent 80%)",
+          "radial-gradient(at top left, #ffffff 0%, #f7fcfc 10%, #e1f0f0 30%, transparent 65%), \
+     radial-gradient(at top right, #ffffff 0%, #f7fcfc 12%, #d9efee 32%, transparent 65%), \
+     radial-gradient(at bottom left, #ffffff 0%, #f7fcfc 12%, #b7cbc9 32%, transparent 65%), \
+     radial-gradient(at bottom right, #ffffff 0%, #fbfefe 10%, #e1f0f0 30%, transparent 65%), \
+     radial-gradient(circle at center, #cfe7e6 12%, transparent 85%)",
 
-        // Versión oscura con más contraste
+        // Versión oscura con acentos más vivos y mayor profundidad
         "dark-art-gradient":
-          "radial-gradient(at top left, #506b85 0%, #2f4254 35%, transparent 70%), \
-     radial-gradient(at top right, #5c7a95 0%, #34495e 35%, transparent 70%), \
-     radial-gradient(at bottom left, #3e5469 0%, #1c2a36 35%, transparent 70%), \
-     radial-gradient(at bottom right, #2f4254 0%, #141b22 35%, transparent 70%), \
-     radial-gradient(circle at center, #0a0f14 15%, transparent 85%)",
+          "radial-gradient(at top left, #163e55 0%, #123846 28%, transparent 62%), \
+     radial-gradient(at top right, #1a4a66 0%, #133b4f 28%, transparent 62%), \
+     radial-gradient(at bottom left, #153642 0%, #0b232b 28%, transparent 62%), \
+     radial-gradient(at bottom right, #0f2730 0%, #000811 28%, transparent 62%), \
+     radial-gradient(circle at center, #000a0f 10%, transparent 90%)",
       },
     },
   },

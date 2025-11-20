@@ -66,16 +66,54 @@ html {
   from {
     opacity: 0;
     transform: translateY(-20px);
-    max-height: 0;
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    max-height: 600px;
   }
 }
 
 .animate-slideDown {
   animation: slideDown 0.5s ease-out forwards;
-  overflow: hidden;
+  /* Allow expanded content to grow (do not clip by height) */
+  overflow: visible;
+}
+
+/* Overlay blur with vendor prefix and explicit rgba backgrounds for reliable transparency */
+.overlay-blur {
+  /* Default: use a visible translucent background as fallback */
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* If the browser supports backdrop-filter, enable the real blur and subtle tint */
+@supports (
+  (-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))
+) {
+  .overlay-blur {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.06
+    ); /* subtle white tint like navbar */
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .dark .overlay-blur {
+    background-color: rgba(0, 0, 0, 0.18); /* subtle dark tint in dark mode */
+  }
+}
+
+/* If no backdrop-filter support, keep a stronger translucent background so it's visible */
+@supports not (
+  (-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))
+) {
+  .overlay-blur {
+    background-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .dark .overlay-blur {
+    background-color: rgba(0, 0, 0, 0.36);
+  }
 }
